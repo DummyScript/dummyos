@@ -20,6 +20,25 @@ You can use this repository as a starting point for any Alpha Griffin Python pro
 
 Now your clone of pyproject lives at the new GitHub address and pushes will go there by default.
 
+**Recommended**
+
+With this extra step you can easily pull and merge again in the future from this master *pyproject* repository:
+
+7. ``git remote add pyproject http://github.com/AlphaGriffin/pyproject``
+
+Using ``git pull pyproject`` you can pull and merge the latest from *pyproject* at any time.
+
+
+
+Initial Commit
+--------------
+
+There's a few things you'll want to do for first commit:
+
+1. Rename the default project source folder: ``git mv ag/pyproject ag/my_new_thing``
+2. Update variables in ``setup.py``
+3. Update project name in ``.gitignore`` (look for *pyproject*.egg-info)
+
 
 Installing
 ----------
