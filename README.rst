@@ -45,3 +45,12 @@ Installing
 
 To install this project to the local system: ``python setup.py install``
 
+
+Using
+-----
+
+The **pyproject** module does nothing useful and is for example purposes only.
+Import your own implementation like this::
+    
+    import ag.my_new_thing
+
