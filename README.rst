@@ -54,3 +54,19 @@ Import your own implementation like this::
     
     import ag.my_new_thing
 
+
+Distributing
+------------
+
+Since we use the standard setuptools package, it is very easy to make source and binary distributions.
+
+To make a *source* distribution::
+
+    python setup.py sdist
+
+To make a *binary* distribution::
+
+    python setup.py bdist_wheel
+
+The distributions will collect in the build/ directory.
+
