@@ -68,5 +68,5 @@ To make a *binary* distribution::
 
     python setup.py bdist_wheel
 
-The distributions will collect in the build/ directory.
+The distributions will collect in the dist/ directory.
 
