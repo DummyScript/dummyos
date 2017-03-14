@@ -1,6 +1,8 @@
 Copyright (C) 2017 Alpha Griffin
 @%@~LICENSE~@%@
 
+saw_031417_4 - Will just have to do without the friendly error check.
+
 saw_031417_3 - Fix the conditional Sphinx check.
 
 saw_031417_2 - Fix over-broad Sphinx dependency check.

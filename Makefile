@@ -122,27 +122,27 @@ docs_clean:
 	rm -rf $(DOCDIR)/coverage
 
 # User-friendly check for sphinx-build
-sphinx:
-ifeq ($(shell which $(SPHINXBUILD) >/dev/null 2>&1; echo $$?), 1)
-$(error The '$(SPHINXBUILD)' command was not found. Make sure you have Sphinx installed, then set the SPHINXBUILD environment variable to point to the full path of the '$(SPHINXBUILD)' executable. Alternatively you can add the directory with the executable to your PATH. If you don't have Sphinx installed, grab it from http://sphinx-doc.org/)
-endif
+#sphinx:
+#ifeq ($(shell which $(SPHINXBUILD) >/dev/null 2>&1; echo $$?), 1)
+#$(error The '$(SPHINXBUILD)' command was not found. Make sure you have Sphinx installed, then set the SPHINXBUILD environment variable to point to the full path of the '$(SPHINXBUILD)' executable. Alternatively you can add the directory with the executable to your PATH. If you don't have Sphinx installed, grab it from http://sphinx-doc.org/)
+#endif
 
-html:	sphinx
+html:	#sphinx
 	$(SPHINXBUILD) -b html $(ALLSPHINXOPTS) $(DOCDIR)/html
 	@echo
 	@echo "Build finished. The HTML pages are in $(DOCDIR)/html."
 
-text:	sphinx
+text:	#sphinx
 	$(SPHINXBUILD) -b text $(ALLSPHINXOPTS) $(DOCDIR)/text
 	@echo
 	@echo "Build finished. The text files are in $(DOCDIR)/text."
 
-man:	sphinx
+man:	#sphinx
 	$(SPHINXBUILD) -b man $(ALLSPHINXOPTS) $(DOCDIR)/man
 	@echo
 	@echo "Build finished. The manual pages are in $(DOCDIR)/man."
 
-coverage: sphinx
+coverage: #sphinx
 	$(SPHINXBUILD) -b coverage $(ALLSPHINXOPTS) $(DOCDIR)/coverage
 	@echo "Testing of coverage in the sources finished, look at the " \
 	      "results in $(DOCDIR)/coverage/python.txt."
