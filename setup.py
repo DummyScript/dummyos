@@ -14,43 +14,91 @@ Some of this script logic also taken from:
         https://github.com/google/protobuf
 """
 
+# -------------------------------------------------------------------------------------
+#
+# CUSTOMIZE THIS SECTION
+#   All the variables defined here should be customized for your project.
+#
+
+NS      = 'ag'                          # namespace / meta-package folder
+NAME    = 'pyproject'                   # should match source package name in NS folder
+REQUIRE = ['setuptools']                # package dependencies
+
+DESC    = 'Alpha Griffin Starter Python Project'
+TAGS    = 'example utilities'           # space-separated list of keywords
+
+AUTHOR  = 'lannocc'                     # name or alias of author
+EMAIL   = 'lannocc@alphagriffin.com'    # email of author
+
+URL     = 'http://alphagriffin.com'
+LICENSE = 'AG'                          # type of license
+COPY    = '2017 Alpha Griffin'          # copyright
+
+CLASS   = [
+    # @see https://pypi.python.org/pypi?%3Aaction=list_classifiers
+    'Development Status :: 3 - Alpha',
+    'Intended Audience :: Developers',
+    'Natural Language :: English',
+    'Programming Language :: Python',
+    'Topic :: System :: Installation/Setup',
+    'Topic :: Utilities',
+]
+
+
+#
+# END CUSTOMIZATION AREA
+# -------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+#################
+# !!! WARNING !!!
+# !!! WARNING !!!
+#################
+# THINK CAREFULLY BEFORE CHANGING ANYTHING BELOW THIS LINE
+
 from setuptools import setup, find_packages
 from codecs import open
 from os import path
+
+def findversion(root, name):
+    '''versioning strategy taken from http://stackoverflow.com/a/7071358/7203060'''
+
+    import re
+    vfile = path.join(root, name, "__version__.py")
+    vmatch = re.search(r'^__version__ *= *["\']([^"\']*)["\']', open(vfile, "rt").read(), re.M)
+    if vmatch:
+        version = vmatch.group(1)
+        print ("Found %s version %s" % (name, version))
+        return version
+    else:
+        raise RuntimeError("Expecting a version string in %s." % (vfile))
+
+
 
 if __name__ == '__main__':
 
     setup(
 
-        name='pyproject',
-        version='0.0.1',
-        license='AG', # FIXME
-
-        namespace_packages=['ag'], # home for Alpha Griffin libraries
+        name=NAME,
+        version=findversion(NS, NAME),
+        license=LICENSE,
+        namespace_packages=[NS], # home for our libraries
         packages=find_packages(exclude=['tests']),
-
-        author='Lannocc @ Alpha Griffin',
-        author_email='lannocc@alphagriffin.com',
-
-        description='Alpha Griffin Starter Python Project',
+        author=AUTHOR,
+        author_email=EMAIL,
+        description=DESC,
         long_description=open('README.rst').read(),
-        url='http://alphagriffin.com',
-
-        # @see https://pypi.python.org/pypi?%3Aaction=list_classifiers
-        classifiers=[
-            'Development Status :: 3 - Alpha',
-            'Intended Audience :: Developers',
-            'Natural Language :: English',
-            'Programming Language :: Python',
-            'Topic :: System :: Installation/Setup',
-            'Topic :: Utilities'
-        ],
-
-        # space-separated list of keywords
-        keywords='alphagriffin example utilities',
+        url=URL,
+        classifiers=CLASS,
+        keywords=TAGS,
 
         # run-time dependencies
-        install_requires=['setuptools'], # setuptools here for example only (it's implied)
+        install_requires=REQUIRE,
 
         extras_require={
         },

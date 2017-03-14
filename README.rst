@@ -5,6 +5,10 @@ Alpha Griffin Python Starter Project
 
 Starting point for a Python project.
 
+.. contents:: Table of Contents
+.. toctree::
+   API Documentation <api/modules>
+
 
 Starting a Project
 ------------------
