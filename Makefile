@@ -26,7 +26,7 @@ default: help
 
 help:
 	@echo "Please use \`make <target>' where <target> is one of"
-	@echo "  help         	display this help screen"
+	@echo "  help           display this help screen"
 	@echo ""
 	@echo "  all            to make all common tasks: python, docs"
 	@echo "  clean          to clean all common tasks: python_clean, docs_clean"
