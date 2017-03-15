@@ -30,47 +30,82 @@ With this extra step you can easily pull and merge again in the future from this
 
 7. ``git remote add pyproject http://github.com/AlphaGriffin/pyproject``
 
-Using ``git pull pyproject`` you can pull and merge the latest from *pyproject* at any time.
+Using ``git pull pyproject master`` you can pull and merge the latest from *pyproject* at any time.
 
 
-
-Initial Commit
---------------
+First Commit
+------------
 
 There's a few things you'll want to do for first commit:
 
-1. Rename the default project source folder: ``git mv ag/pyproject ag/my_new_thing``
-2. Update variables in ``setup.py``
-3. Update project name in ``.gitignore`` (look for *pyproject*.egg-info)
+1. Rename the default project source folder: ``git mv ag/pyproject ag/my_new_thing``. It's important you have a similar ``__version__.py`` file in your source folder.
+2. Update variables in ``setup.py``, most importantly NAME must match the name of your new ``ag/my_new_thing`` source folder
+3. Remove the pyproject API rst docs from ``api/`` folder. You can use ``make apidoc`` to have new ones automatically generated once you have some code to document.
+
+
+Build Overview
+--------------
+
+Both a Makefile and setup.py are provided and used. The setup.py uses Python's standard setuptools package and you can call this script directly to do the basic Python tasks such as creating a wheel, etc.
+
+The most common project build tasks are all provided in the Makefile. To see the full list of project targets::
+
+    make help
+
+Sphinx is used to generate html documentation and man pages. All documentation (html as well as man pages) may be regenerated at any time with::
+
+    make docs
+
+Every so often, when new source class files are created or moved, you will want to regenerate the API documentation templates. These templates may be modified by hand so this task does not overwrite existing files; you'll need to remove any existing files from ``api/`` that you want recreated. Then generate the API templates and re-build all documentation as follows::
+
+    make apidoc
+    make docs
+
+There's not much to do for a simple Python project but your build may want to do more. In any case you can call ``make python`` if you need to (in pyproject this target simply delegates to ``./setup.py build``).
+
+Build all the common tasks (including documentation) as follows::
+
+    make all
+
+To clean up all the common generated files from your project folder::
+
+    make clean
 
 
 Installing
 ----------
 
-To install this project to the local system: ``python setup.py install``
+To install this project to the local system::
 
+    make install
 
-Using
------
-
-The **pyproject** module does nothing useful and is for example purposes only.
-Import your own implementation like this::
-    
-    import ag.my_new_thing
+Note that you may need superuser permissions to perform the above step.
 
 
 Distributing
 ------------
 
-Since we use the standard setuptools package, it is very easy to make source and binary distributions.
-
-To make a *source* distribution::
-
-    python setup.py sdist
-
 To make a *binary* distribution::
 
-    python setup.py bdist_wheel
+    make bdist
 
-The distributions will collect in the dist/ directory.
+(in pyproject, the above step simply delegates to ``./setup.py bdist_wheel``)
+
+The distributions will collect in the ``dist/`` directory.
+
+
+Using
+-----
+
+The **pyproject** module does nothing useful and is for example purposes only, but you can import it to verify correct installation.
+
+If you have already installed the project to the system then it's as simple as::
+    
+    import ag.pyproject
+
+If you have not installed the project system-wide or you have some changes to try, you must add the project folder to Python's search path first::
+
+    import sys, os
+    sys.path.insert(0, os.path.abspath('/path/to/pyproject'))
+    import ag.pyproject
 
