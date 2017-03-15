@@ -1,10 +1,14 @@
 # Copyright (C) 2017 Alpha Griffin
 # @%@~LICENSE~@%@
 
-"""
+"""Alpha Griffin
+
 This package-init script currently simply handles namespace sharing.
-    (from http://github.com/google/protobuf)
+
+.. module:: ag
+   :synopsis: Alpha Griffin Namespace
 """
+#    (from http://github.com/google/protobuf)
 
 try:
     __import__('pkg_resources').declare_namespace(__name__)
