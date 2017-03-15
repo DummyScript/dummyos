@@ -1,6 +1,9 @@
 Copyright (C) 2017 Alpha Griffin
 @%@~LICENSE~@%@
 
+saw_031517_2 - Fix theme_options for sphinx_rtd_theme 0.1.9 which is the version currently in
+               portage. Add favicon.ico.
+
 saw_031517_1 - Use sphinx_rtd_theme.
 
 saw_031417_7 - Add to the docstrings.
