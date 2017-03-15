@@ -14,6 +14,12 @@ Some of this script logic also taken from:
         https://github.com/google/protobuf
 """
 
+# FIXME / note to self:
+#  read more at https://caremad.io/posts/2013/07/setup-vs-requirement/
+#  -- to integrate fully pip
+
+
+
 # -------------------------------------------------------------------------------------
 #
 # CUSTOMIZE THIS SECTION
@@ -22,7 +28,7 @@ Some of this script logic also taken from:
 
 NS      = 'ag'                          # namespace / meta-package folder
 NAME    = 'pyproject'                   # should match source package name in NS folder
-REQUIRE = ['setuptools']                # package dependencies
+REQUIRE = ['sphinx_rtd_theme']          # package dependencies
 
 DESC    = 'Alpha Griffin Starter Python Project'
 TAGS    = 'example utilities'           # space-separated list of keywords
