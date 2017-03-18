@@ -109,3 +109,5 @@ If you have not installed the project system-wide or you have some changes to tr
     sys.path.insert(0, os.path.abspath('/path/to/pyproject'))
     import ag.pyproject
 
+.. notes
+.. https://sonarqube.com/about for possible ideas
