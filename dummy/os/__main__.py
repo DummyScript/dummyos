@@ -38,25 +38,35 @@ class DockerControls(object):
         images = self.client.images.list()
         print("Searching {}".format(self.server))
         for image in images:
-            name = image.name
-            print("Found :: {} ::".format(name))
+            # name = image.name
+            print("Found :: {} ::".format(image))
         
     def run_image(self, image):
+        print("searching locally for {}".format(image))
         images = self.client.images.list()
-
-        if image in images:
-            print("We have the Image we need locally")
-            self.client.images.load(image)
-            print("The Image is loaded.")
-
-        pass
+        print("{}".format(images))
+        for x in images:
+            print("current tag: {}".format(x.tag))
+            if image == x.tag:
+                print("We have the Image we need locally")
+                self.client.images.load(image)
+                print("The Image is loaded.")
+        
+        else:
+            print("We need to download this one... hold")
+            search_results = self.client.images.search(image)
+            print("{}".format(search_results))
+            self.client.images.pull(search_results[0]['name'])
+            print("pulled {} and it to docker images".format(image)) 
 
 
 
 def main(argz):
     print("Starting Docker Scan")
-    dock = DockerControls("agserver", "2375")
+    # dock = DockerControls("agserver", "2375")
+    dock = DockerControls()
     dock.show_images()
+    dock.run_image('ruckusist/dummyos:latest')
 
 
 if __name__ == '__main__':
