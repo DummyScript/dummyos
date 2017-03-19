@@ -5,10 +5,10 @@
 
 """AlphaGriffin setuptools build script.
 
-@author lannocc
+@author ruckusist
 
-@see    https://packaging.python.org/en/latest/distributing.html
-@see    https://github.com/pypa/sampleproject
+@see    https://docs.docker.com/engine/api/getting-started/#running-a-container
+@see    https://docs.docker.com/engine/reference/commandline/build/#tarball-contexts
 
 Some of this script logic also taken from:
         https://github.com/google/protobuf
@@ -26,19 +26,19 @@ Some of this script logic also taken from:
 #   All the variables defined here should be customized for your project.
 #
 
-NS      = 'ag'                          # namespace / meta-package folder
-NAME    = 'pyproject'                   # should match source package name in NS folder
-REQUIRE = ['sphinx_rtd_theme']          # package dependencies
+NS      = 'dummy'                          # namespace / meta-package folder
+NAME    = 'os'                             # should match source package name in NS folder
+REQUIRE = ['sphinx_rtd_theme']             # package dependencies
 
-DESC    = 'Alpha Griffin Starter Python Project'
-TAGS    = 'example utilities'           # space-separated list of keywords
+DESC    = 'Dummyscript.com DummyOS'
+TAGS    = 'gentoo tutorial dummyscript '   # space-separated list of keywords
 
-AUTHOR  = 'lannocc'                     # name or alias of author
-EMAIL   = 'lannocc@alphagriffin.com'    # email of author
+AUTHOR  = 'ruckusist'                      # name or alias of author
+EMAIL   = 'ruckusist@alphagriffin.com'     # email of author
 
 URL     = 'http://alphagriffin.com'
-LICENSE = 'AG'                          # type of license
-COPY    = '2017 Alpha Griffin'          # copyright
+LICENSE = 'AG'                             # type of license
+COPY    = '2017 Alpha Griffin'             # copyright
 
 CLASS   = [
     # @see https://pypi.python.org/pypi?%3Aaction=list_classifiers
@@ -93,7 +93,7 @@ if __name__ == '__main__':
         name=NAME,
         version=findversion(NS, NAME),
         license=LICENSE,
-        namespace_packages=[NS], # home for our libraries
+        namespace_packages=[NS],   # home for our libraries
         packages=find_packages(exclude=['tests']),
         author=AUTHOR,
         author_email=EMAIL,
@@ -104,7 +104,8 @@ if __name__ == '__main__':
         keywords=TAGS,
 
         # run-time dependencies
-        install_requires=REQUIRE,
+        install_requires=['docker'
+                           ],
 
         extras_require={
         },
@@ -115,6 +116,10 @@ if __name__ == '__main__':
         data_files=[],
 
         entry_points={
+            'console_scripts': [
+                'dummyos = dummy.os.__main__',
+                'dummy.os = dumm.os.__second__'
+            ]
         },
     )
 

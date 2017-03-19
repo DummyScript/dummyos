@@ -1,4 +1,4 @@
-ag package
+dummy package
 ==========
 
 Subpackages
@@ -6,7 +6,7 @@ Subpackages
 
 .. toctree::
 
-    ag.pyproject
+    dummy.os
 
 Module contents
 ---------------

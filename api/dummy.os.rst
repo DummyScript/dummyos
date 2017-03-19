@@ -1,10 +1,10 @@
-ag.pyproject package
+dummy.os package
 ====================
 
 Module contents
 ---------------
 
-.. automodule:: ag.pyproject
+.. automodule:: dummy.os
     :members:
     :undoc-members:
     :show-inheritance:

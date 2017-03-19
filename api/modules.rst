@@ -1,7 +1,7 @@
-ag
+dummy
 ==
 
 .. toctree::
    :maxdepth: 4
 
-   ag
+   dummy
