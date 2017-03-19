@@ -12,7 +12,7 @@ RUN emerge --sync
 
 # Optional -- open ssh server
 # RUN /etc/init.d/sshd stop
-RUN /etc/init.d/sshd start
+# RUN /etc/init.d/sshd start
 
 # fortune and cowsay for comedy...
 RUN emerge games-misc/cowsay
@@ -29,5 +29,8 @@ RUN git clone http://git.alphagriffin.com/ruckusist/bash_utilities
 
 
 # end our program
-CMD fortune -a | cowsay
+#CMD fortune -a | cowsay
 
+# keep our docker open
+# this is a hack.
+CMD tail -f /dev/null
