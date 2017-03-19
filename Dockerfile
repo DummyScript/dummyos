@@ -1,3 +1,6 @@
+# Copyright (C) 2017 Alpha Griffin
+# @%@~LICENSE~@%@
+
 # echo "Starting The Docker Build Process"
 FROM gentoo/stage3-amd64:latest
 
@@ -27,7 +30,9 @@ RUN cd /repos
 RUN git clone http://git.alphagriffin.com/ruckusist/bash_utilities 
 
 
+# this a Hack to keep a non serving docker open for use
+CMD tail -f /dev/null
 
 # end our program
-CMD fortune -a | cowsay
+# CMD fortune -a | cowsay
 

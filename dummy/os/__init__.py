@@ -12,7 +12,7 @@ conventions and standards.
 .. moduleauthor:: Shawn Wilson <lannocc@alphagriffin.com>
 """
 
-from ag.pyproject.__version__ import __version__
+from dummy.os.__version__ import __version__
 
-print ("Sample Alpha Griffin project version %s successfully installed!" % (__version__))
+print ("DummyScript.com Basic Operating System : {}".format(__version__))
 

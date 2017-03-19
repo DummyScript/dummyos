@@ -1,32 +1,5 @@
 Copyright (C) 2017 Alpha Griffin
 @%@~LICENSE~@%@
 
-saw_031517_3 - Add logo.
-
-saw_031517_2 - Fix theme_options for sphinx_rtd_theme 0.1.9 which is the version currently in
-               portage. Add favicon.ico.
-
-saw_031517_1 - Use sphinx_rtd_theme.
-
-saw_031417_7 - Add to the docstrings.
-
-saw_031417_6 - Updates to README about the Makefile.
-
-saw_031417_5 - Bumping to beta status.
-
-saw_031417_4 - Will just have to do without the friendly error check.
-
-saw_031417_3 - Fix the conditional Sphinx check.
-
-saw_031417_2 - Fix over-broad Sphinx dependency check.
-
-saw_031417_1 - Building up a Makefile; utilizing Sphinx for documentation.
-
-saw_030917_1 - Add instructions for making source/binary distributions.
-
-saw_021817_3 - More README updates.
-
-saw_021817_2 - Updates to README and .gitignore.
-
-saw_021817_1 - Initial commit.
+roc_031817_1 - Initial commit.
 
