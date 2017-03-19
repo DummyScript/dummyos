@@ -117,8 +117,7 @@ if __name__ == '__main__':
 
         entry_points={
             'console_scripts': [
-                'dummyos = dummy.os.__main__',
-                'dummy.os = dumm.os.__second__'
+                'dummyos = dummy.os.__main__'
             ]
         },
     )
