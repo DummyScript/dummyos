@@ -10,6 +10,10 @@ FROM gentoo/stage3-amd64:latest
 RUN emerge --sync 
 # thats the hard part...
 
+# Optional -- open ssh server
+# RUN /etc/init.d/sshd stop
+RUN /etc/init.d/sshd start
+
 # fortune and cowsay for comedy...
 RUN emerge games-misc/cowsay
 RUN emerge games-misc/fortune-mod
@@ -21,6 +25,8 @@ RUN emerge dev-vcs/git
 RUN mkdir /repos
 RUN cd /repos
 RUN git clone http://git.alphagriffin.com/ruckusist/bash_utilities 
+
+
 
 # end our program
 CMD fortune -a | cowsay
