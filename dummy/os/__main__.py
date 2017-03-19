@@ -24,18 +24,19 @@ import sys
 
 class DockerControls(object):
     def __init__(self, server_url=None, server_port=None):
-        if server is None:
+        if server_url is None:
             self.client = docker.from_env()
+            self.server = "Docker Host: Local Host"
         else:
             self.server = "Docker Host {}:{}".format(server_url, server_port)
-            self.client = docker.DockerClient(base_url="tcp://{}:{}".fomat(
+            self.client = docker.DockerClient(base_url="tcp://{}:{}".format(
                                server_url, server_port))
 
 
 
     def show_images(self):
         images = self.client.images.list()
-        print("Searching Docker Host: {}")
+        print("Searching {}".format(self.server))
         for image in images:
             name = image.name
             print("Found :: {} ::".format(name))
@@ -48,14 +49,8 @@ class DockerControls(object):
 def main(argz):
     print("Starting Docker Scan")
     dock = DockerControls()
-
     dock.show_images()
 
 
 if __name__ == '__main__':
-    print("hello world")
-    main(0)
-
-    #except Exception as e:
-    #    print("exiting dockersuite for {}".format(e))
-    #    sys.exit()
+    main(sys.argv)
