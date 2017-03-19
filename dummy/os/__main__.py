@@ -42,13 +42,20 @@ class DockerControls(object):
             print("Found :: {} ::".format(name))
         
     def run_image(self, image):
+        images = self.client.images.list()
+
+        if image in images:
+            print("We have the Image we need locally")
+            self.client.images.load(image)
+            print("The Image is loaded.")
+
         pass
 
 
 
 def main(argz):
     print("Starting Docker Scan")
-    dock = DockerControls()
+    dock = DockerControls("agserver", "2375")
     dock.show_images()
 
 
