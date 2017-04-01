@@ -27,19 +27,10 @@ RUN emerge dev-vcs/git
 # Starting Git Startup and Basic Setup Still
 RUN mkdir /repos
 RUN cd /repos
-RUN git clone http://git.alphagriffin.com/ruckusist/bash_utilities 
+RUN git clone http://git.alphagriffin.com/ruckusist/tf_curses
 
+# Install Git repos
+RUN python3 tf_curses/setup.py install
 
-# this a Hack to keep a non serving docker open for use
-CMD tail -f /dev/null
-
-# end our program
-<<<<<<< HEAD
-#CMD fortune -a | cowsay
-=======
-# CMD fortune -a | cowsay
->>>>>>> 907cc2c3b6b28be5ac9eb3c2a7ed4a3217f7cfe6
-
-# keep our docker open
-# this is a hack.
-CMD tail -f /dev/null
+# this is a chatbot-- for now... !!!
+CMD tf_curses

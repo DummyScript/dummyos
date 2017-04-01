@@ -46,8 +46,9 @@ class DockerControls(object):
         images = self.client.images.list()
         print("{}".format(images))
         for x in images:
-            print("current tag: {}".format(x.tag))
-            if image == x.tag:
+            name = x.attrs.keys('name')
+            print("current tag: {}".format(name))
+            if image in name:
                 print("We have the Image we need locally")
                 self.client.images.load(image)
                 print("The Image is loaded.")
