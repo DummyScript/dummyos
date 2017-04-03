@@ -1,6 +1,6 @@
 # DUmmyScript.com
 *.swp
-*.ipynb_checkpoints
+*.ipynb_notebooks
 .idea
 
 /build/

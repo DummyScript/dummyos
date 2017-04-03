@@ -16,21 +16,21 @@ RUN emerge --sync
 # Optional -- open ssh server
 # RUN /etc/init.d/sshd stop
 # RUN /etc/init.d/sshd start
-
+WORKDIR /
 # fortune and cowsay for comedy...
 RUN emerge games-misc/cowsay
 RUN emerge games-misc/fortune-mod
+RUN emerge =dev-lang/python-9999
 
 # install git for moving public files around
-RUN emerge dev-vcs/git
+#RUN emerge dev-vcs/git
 
 # Starting Git Startup and Basic Setup Still
-RUN mkdir /repos
-RUN cd /repos
-RUN git clone http://git.alphagriffin.com/ruckusist/tf_curses
-
+#RUN git clone https://github.com/alphagriffin/tf_utilities
+#WORKDIR /tf_utilities
+#RUN python3 setup.py install
 # Install Git repos
-RUN python3 tf_curses/setup.py install
+#RUN python3 tf_curses/setup.py install
 
 # this is a chatbot-- for now... !!!
-CMD tf_curses
+#CMD tf_curses
