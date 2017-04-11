@@ -20,10 +20,10 @@ WORKDIR /
 # fortune and cowsay for comedy...
 RUN emerge games-misc/cowsay
 RUN emerge games-misc/fortune-mod
-RUN emerge =dev-lang/python-9999
+RUN emerge dev-lang/python
 
 # install git for moving public files around
-#RUN emerge dev-vcs/git
+RUN emerge dev-vcs/git
 
 # Starting Git Startup and Basic Setup Still
 #RUN git clone https://github.com/alphagriffin/tf_utilities
